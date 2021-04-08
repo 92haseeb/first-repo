@@ -1,0 +1,17 @@
+---
+- name: Creating a user and making a directory into user's home directory named as ansible and copying hosts file into that directory 
+  hosts: all
+  tasks:
+    - name: Creating user john
+      user:
+        name: john
+        state: present
+    - name: Creating directory ansible
+      file:
+        path: /home/john/ansible
+        state: directory
+    - name: Copying hosts file
+      copy:
+        src: /etc/ansible/hosts
+        dest: /home/john/ansible/
+...
